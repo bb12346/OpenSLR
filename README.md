@@ -46,4 +46,10 @@ python  extract_SLRframe_MSSL_VAL.py --video_path /data/SSL/VALIDATION/MSSL_VAL_
 ### To evaluate the val data
 ```
 nohup python -u openslr/evaluate_track2.py > pre.log_eval_track2 2>&1 &
+--cfgs is your yaml file
+--model_path is the path of your model parameters 
+--gallery_pkl is the path of gallery pkl
+--val_pkl is the path of val pkl
+--window_min is the minimum length of the sliding window
+--window_max is the maximum length of the sliding window
 ```
