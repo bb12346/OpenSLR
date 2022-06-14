@@ -16,6 +16,18 @@ For example:
 python  datasets/pretreatment.py --input_path /root/SSL/data/data_sorted/ --output_path /root/SSL/data/data_sorted_RGB_npy/
 ```
 
+To train your model
+
+Step 1) create your network and save it into the path openslr/modeling/models/
+Step 2) add your data transform into openslr/data/transform.py
+Step 3) create your yaml files and save it into the path config/
+
+Then, you can train your model:
+```
+CUDA_VISIBLE_DEVICES=0 nohup python -u -m torch.distributed.launch --nproc_per_node=1 openslr/main.py --cfgs ./config/SLR_Pose.yaml --phase train > pre.log_train_SLR_Pose 2>&1 &
+```
+
+
 To generate the test data
 ```
 python  extract_SLRframe_OSLWL.py --video_path your_video_path --save_path your_save_path
