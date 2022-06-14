@@ -169,6 +169,43 @@ def loadtopk(path, tk=0):
     # print(video_id)
     video_dist, video_id, video_starttime, video_endtime, video_name = list(video_dist), list(video_id), list(video_starttime), list(video_endtime), list(video_name)
     return video_dist, video_id, video_starttime, video_endtime, video_name
+    
+def generate_pkl(dir_path, save_path):
+    file_list = sorted(os.listdir(dir_path))
+    print(file_list)
+    count = 1
+    for name in file_list:
+        dir_each = os.path.join(dir_path, name)
+        frame_list = os.listdir(dir_each)
+        frame_list.sort()
+        print(count, name,len(frame_list))
+        all_imgs = []
+        for frame in frame_list:
+            frame_each = os.path.join(dir_each, frame)
+            # print(frame_each)
+            img = cv2.imread(frame_each)
+            img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+            img = img.transpose(2,0,1)
+            if np.size(img,1)!=720 or np.size(img,2)!=1280:
+                img = np.resize(img,(np.size(img,0),720,1280))
+            all_imgs.append(torch.from_numpy(img))
+            if len(all_imgs)%100 ==0:
+                print('-len(frame) = ',len(all_imgs))
+
+            # print(img.shape)
+        # print('-----------1---------------')
+        # all_imgs = np.asarray(all_imgs)
+        all_imgs = torch.stack(all_imgs).numpy()
+        # print(all_imgs.shape)
+        # print('-----------2---------------')
+        save_path_each = os.path.join(save_path, name)
+        isExists = os.path.exists(save_path_each)
+        print(all_imgs.shape)
+        if not isExists:
+            os.makedirs(save_path_each)
+            all_imgs_pkl = os.path.join(save_path_each, '0.pkl')
+            pickle.dump(all_imgs, open(all_imgs_pkl, 'wb')) 
+        count = count + 1
 
 if __name__ == "__main__":
     Top1 = [
