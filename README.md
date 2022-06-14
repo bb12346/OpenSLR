@@ -19,7 +19,9 @@ python  datasets/pretreatment.py --input_path /root/SSL/data/data_sorted/ --outp
 To train your model
 
 Step 1) create your network and save it into the path openslr/modeling/models/
+
 Step 2) add your data transform into openslr/data/transform.py
+
 Step 3) create your yaml files and save it into the path config/
 
 Then, you can train your model:
