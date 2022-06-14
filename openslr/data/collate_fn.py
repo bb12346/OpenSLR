@@ -25,7 +25,9 @@ class CollateFn(object):
         if self.sampler == 'unfixed':
             self.frames_num_max = sample_config['frames_num_max']
             self.frames_num_min = sample_config['frames_num_min']
-
+            # self.frames_numx = random.choice(
+            #                         list(range(self.frames_num_min, self.frames_num_max+1)))
+            # print('-self.frames_numx-',self.frames_numx)
         if self.sampler != 'all' and self.ordered:
             self.frames_skip_num = sample_config['frames_skip_num']
 
@@ -48,7 +50,7 @@ class CollateFn(object):
         global count
         count = 0
 
-        def sample_frames(seqs):
+        def sample_frames(seqs,frames_numx= 0):
             global count
             sampled_fras = [[] for i in range(feature_num)]
             seq_len = len(seqs[0])
@@ -59,9 +61,10 @@ class CollateFn(object):
                 if self.sampler == 'fixed':
                     frames_num = self.frames_num_fixed
                 else:
-                    frames_num = random.choice(
-                        list(range(self.frames_num_min, self.frames_num_max+1)))
-
+                    # frames_num = random.choice(
+                    #     list(range(self.frames_num_min, self.frames_num_max+1)))
+                    frames_num = frames_numx
+                # print('-frames_num-',frames_num)
                 if self.ordered:
                     fs_n = frames_num + self.frames_skip_num
                     if seq_len < fs_n:
@@ -76,6 +79,7 @@ class CollateFn(object):
                     idx_lst = sorted(np.random.choice(
                         idx_lst, frames_num, replace=False))
                     indices = [indices[i] for i in idx_lst]
+                    # print('-len(indices)-',len(indices))
                 else:
                     replace = seq_len < frames_num
 
@@ -105,8 +109,9 @@ class CollateFn(object):
             # print(type(sf[0][0]),len(sf[0][0]),sf[0][0].shape)
             # print(type(seqs[0]),len(seqs[0]))
             # print(type(seqs[0][0]),len(seqs[0][0]))
-
-        fras_batch = [sample_frames(seqs) for seqs in seqs_batch]  # [b, f]
+        frames_numx = random.choice(
+                                    list(range(self.frames_num_min, self.frames_num_max+1)))
+        fras_batch = [sample_frames(seqs,frames_numx) for seqs in seqs_batch]  # [b, f]
         # print('-len(fras_batch)-',len(fras_batch))
         
         # print(labs_batch)
@@ -114,7 +119,7 @@ class CollateFn(object):
         # print(vies_batch)
         batch = [fras_batch, labs_batch, typs_batch, vies_batch, None]
 
-        if self.sampler == "fixed":
+        if self.sampler == "fixed" or self.sampler == "unfixed":
             # print('-------------start---------------')
             # print('-feature_num-',feature_num)
             # print('-batch_size-',batch_size)
