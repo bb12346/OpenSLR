@@ -1,8 +1,8 @@
 # OpenSLR
 
-To generate the trainging data
+### To generate the trainging data
 
-Step 1) Convert MP4 videos to RGB frames
+## Step 1) Convert MP4 videos to RGB frames
 ```
 python  extract_SLRframe.py --txt_path GT_path --video_path your_video_path --save_path your_save_path
 For example:
