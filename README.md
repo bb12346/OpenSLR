@@ -58,4 +58,6 @@ nohup python -u openslr/evaluate_track2.py > pre.log_eval_track2 2>&1 &
 --skip_gallery means whether to use frame skipping
 --length_of_each_gallery defines the length of each gallery sample after using skip_gallery
 --topk means whether to use topk clustering. The first value must be zero. The following values means the number of clustering samples for each clustering.
+--topk_save_path is the save path of the topk matrix
+--predictions_save_path is the save path of our model's prediction
 ```
