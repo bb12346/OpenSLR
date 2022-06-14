@@ -1,6 +1,6 @@
 # OpenSLR
 
-### To generate the trainging data
+### To generate the training data
 
 #### Step 1) Convert MP4 videos to RGB frames
 ```
