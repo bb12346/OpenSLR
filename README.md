@@ -46,10 +46,15 @@ python  extract_SLRframe_MSSL_VAL.py --video_path /data/SSL/VALIDATION/MSSL_VAL_
 ### To evaluate the val data
 ```
 nohup python -u openslr/evaluate_track2.py > pre.log_eval_track2 2>&1 &
+```
 --cfgs is your yaml file
 --model_path is the path of your model parameters 
 --gallery_pkl is the path of gallery pkl
 --val_pkl is the path of val pkl
 --window_min is the minimum length of the sliding window
 --window_max is the maximum length of the sliding window
-```
+--window_stride is the stride from the window_min to the window_max
+--maxsearch is the maximum retrieval number of a video
+--skip_gallery means whether to use frame skipping
+--length_of_each_gallery defines the length of each gallery sample after using skip_gallery
+--topk means whether to use topk clustering. The first value must be zero. The following values means the number of clustering samples for each clustering.
