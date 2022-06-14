@@ -15,6 +15,7 @@ python  datasets/pretreatment.py --input_path path_RGB_frames --output_path path
 For example:
 python  datasets/pretreatment.py --input_path /root/SSL/data/data_sorted/ --output_path /root/SSL/data/data_sorted_RGB_npy/
 ```
+Step 3) Convert RGB Pkls to Pose Pkls
 
 To train your model
 
