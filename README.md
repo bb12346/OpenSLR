@@ -9,7 +9,7 @@ For example:
 python  extract_SLRframe.py --txt_path /data/SSL/TRAIN/MSSL_TRAIN_SET_GT_TXT/ --video_path /data/SSL/TRAIN/MSSL_TRAIN_SET_VIDEOS_ELAN/ --save_path /root/SSL/data_sorted/
 ```
 
-#### Step 2) Convert RGB frames to the Pkls
+#### Step 2) Convert RGB frames to Pkls
 ```
 python datasets/pretreatment.py --input_path /root/SSL/data/data_sorted/ --output_path /root/SSL/data/data_sorted_RGB_npy/
 ```
