@@ -1,0 +1,118 @@
+# Note  : *** the batch_size should be equal to the gpus number at the test phase!!! ***
+data_cfg:
+  dataset_name: SLR
+  #dataset_root: /fuxi_cv/SSL/Norm_pose_data/data_sorted_pose_pkl_joint_motion_norm ## original jointmotion train
+  #dataset_root: /data/SSL/SSL/data/data_sorted_pose_pkl ## original 2d train
+  #dataset_root: /data/SSL/SSL/2D_valtrain/ ## valtrain
+  dataset_root: /data/SSL/SSL/all_2D_train_val ## all=train+val
+  #dataset_root: /data/SSL/SSL/all_2Djointmotionoptial_train_val/ ## all joint motion optial
+  dataset_partition: /root/LBB/OpenSLR/datasets/SLR80.json
+  num_workers: 1
+  remove_no_gallery: false
+  test_dataset_name: SLR_Pose
+
+evaluator_cfg:
+  enable_distributed: true
+  enable_float16: false 
+  restore_ckpt_strict: true
+  restore_hint: 80000
+  save_name: SLR
+  sampler:
+    batch_size: 4
+    sample_type: all_ordered
+    type: InferenceSampler
+  transform:
+    - type: BasePosejointTransform2D
+
+loss_cfg:
+  - loss_term_weight: 1.0
+    margin: 0.2
+    type: TripletLoss
+    log_prefix: triplet
+  - loss_term_weight: 1.0
+    scale: 1
+    type: CrossEntropyLoss
+    log_accuracy: true
+    label_smooth: false
+    log_prefix: softmax
+
+model_cfg:
+  model: SLR_Pose
+  class_num: 80
+  SeparateBNNecks:
+    class_num: 80
+    in_channels: 256
+    parts_num: 81
+
+model_cfg1:
+  model: SLR_Pose_inference
+  class_num: 80
+  SeparateBNNecks:
+    class_num: 80
+    in_channels: 256
+    parts_num: 81
+
+model_cfg2:
+  model: SLR_Pose3D_inference
+  class_num: 80
+  SeparateBNNecks:
+    class_num: 80
+    in_channels: 256
+    parts_num: 39 #39
+
+model_cfg3:
+  model: SLR_Pose3D_inference
+  class_num: 80
+  SeparateBNNecks:
+    class_num: 80
+    in_channels: 256
+    parts_num: 78 #39
+
+model_cfg4:
+  model: SLR_Pose3D_inference_jp
+  class_num: 80
+  SeparateBNNecks:
+    class_num: 80
+    in_channels: 256
+    parts_num: 81 #39
+
+optimizer_cfg:
+  lr: 0.1
+  momentum: 0.9
+  solver: SGD
+  weight_decay: 0.0005
+
+scheduler_cfg:
+  gamma: 0.01
+  milestones: # Learning Rate Reduction at each milestones
+    - 100
+    - 150
+    - 200
+    - 300
+  scheduler: MultiStepLR
+
+trainer_cfg:
+  enable_distributed: true
+  enable_float16: false
+  log_iter: 10
+  restore_ckpt_strict: false
+  optimizer_reset: true
+  scheduler_reset: true
+  restore_hint: 10
+  save_iter: 10
+  save_name: SLR_Pose2D
+  sync_BN: true
+  total_iter: 500
+  sampler:
+    batch_shuffle: true
+    batch_size:
+      - 12
+      - 4
+    frames_num_fixed: 16
+    #frames_num_max: 25
+    #frames_num_min: 10
+    frames_skip_num: 0
+    sample_type: fixed_ordered #unfixed_ordered
+    type: TripletSampler
+  transform:
+    - type: BasePosejointTransform2D
