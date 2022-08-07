@@ -1,0 +1,7 @@
+pytorch >= 1.6
+torchvision
+pyyaml
+tensorboard
+opencv-python
+tqdm
+py7zr
