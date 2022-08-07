@@ -1,0 +1,295 @@
+[2022-06-26 15:08:53] [INFO]: {'enable_float16': False, 'with_test': False, 'fix_BN': False, 'log_iter': 10, 'restore_ckpt_strict': False, 'optimizer_reset': True, 'scheduler_reset': True, 'restore_hint': 0, 'save_iter': 10, 'save_name': 'SLR_pose3D', 'sync_BN': True, 'total_iter': 500, 'sampler': {'batch_shuffle': True, 'batch_size': [12, 4], 'frames_num_fixed': 16, 'frames_num_max': 50, 'frames_num_min': 25, 'sample_type': 'fixed_ordered', 'type': 'TripletSampler', 'frames_skip_num': 0}, 'transform': [{'type': 'BasePosejointTransform3D'}], 'enable_distributed': True}
+[2022-06-26 15:08:53] [INFO]: {'model': 'SLR_pose3D', 'channels': [64, 128, 256], 'class_num': 80, 'SeparateBNNecks': {'class_num': 80, 'in_channels': 256, 'parts_num': 39}}
+-labeling_mode 1-
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_pose3D.py:161: UserWarning: nn.init.kaiming_normal is now deprecated in favor of nn.init.kaiming_normal_.
+  nn.init.kaiming_normal(conv.weight, mode='fan_out')
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_pose3D.py:162: UserWarning: nn.init.constant is now deprecated in favor of nn.init.constant_.
+  nn.init.constant(conv.bias, 0)
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_pose3D.py:166: UserWarning: nn.init.constant is now deprecated in favor of nn.init.constant_.
+  nn.init.constant(bn.weight, scale)
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_pose3D.py:167: UserWarning: nn.init.constant is now deprecated in favor of nn.init.constant_.
+  nn.init.constant(bn.bias, 0)
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_pose3D.py:245: UserWarning: nn.init.constant is now deprecated in favor of nn.init.constant_.
+  nn.init.constant(self.Linear_bias, 1e-6)
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_pose3D.py:251: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  eye_array), requires_grad=False, device='cuda'), requires_grad=False)  # [c,25,25]
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+[2022-06-26 15:08:56] [INFO]: {'dataset_name': 'SLR', 'dataset_root': '/data/SSL/SSL/all_3D_train_val', 'num_workers': 1, 'dataset_partition': '/root/LBB/OpenSLR/datasets/SLR80.json', 'remove_no_gallery': False, 'cache': False, 'test_dataset_name': 'SLR_DecoupleFv4'}
+-train_set- ['001', '002', '003', '004', '006', '007', '008', '009', '010', '011', '012', '013', '014', '015', '016', '017', '018', '019', '020', '021', '022', '023', '024', '025', '026', '027', '028', '029', '030', '031', '032', '033', '034', '035', '036', '037', '038', '039', '040', '041', '042', '043', '044', '045', '046', '047', '048', '049', '050', '051', '052', '053', '054', '055', '056', '057', '058', '059', '060', '061', '062', '063', '064', '065', '066', '067', '068', '069', '070', '071', '072', '073', '074', '075', '076', '077', '078', '079', '080']
+-test_set- ['001']
+[2022-06-26 15:08:56] [INFO]: -------- Train Pid List --------
+[2022-06-26 15:08:56] [INFO]: [001, 002, ..., 080]
+-----------------loader-----------------------------
+---------------------------------------self.train_loader ----------------------------------------------
+[2022-06-26 15:08:56] [INFO]: {'lr': 0.1, 'momentum': 0.9, 'solver': 'SGD', 'weight_decay': 0.0005}
+[2022-06-26 15:08:56] [INFO]: {'gamma': 0.1, 'milestones': [150, 200, 250, 350], 'scheduler': 'MultiStepLR'}
+[2022-06-26 15:08:56] [INFO]: Parameters Count: 9.70900M
+[2022-06-26 15:08:56] [INFO]: Model Initialization Finished!
+-----------run_train------------
+DDPPassthrough(
+  (module): SLR_pose3D(
+    (data_bn): SyncBatchNorm(117, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (l1): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (down): Sequential(
+          (0): Conv2d(3, 64, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn0): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(64, 64, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(64, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(64, 1, kernel_size=(39,), stride=(1,), padding=(19,))
+      (fc1c): Linear(in_features=64, out_features=32, bias=True)
+      (fc2c): Linear(in_features=32, out_features=64, bias=True)
+    )
+    (l2): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(64, 64, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(64, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(64, 1, kernel_size=(39,), stride=(1,), padding=(19,))
+      (fc1c): Linear(in_features=64, out_features=32, bias=True)
+      (fc2c): Linear(in_features=32, out_features=64, bias=True)
+    )
+    (l3): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(64, 64, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(64, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(64, 1, kernel_size=(39,), stride=(1,), padding=(19,))
+      (fc1c): Linear(in_features=64, out_features=32, bias=True)
+      (fc2c): Linear(in_features=32, out_features=64, bias=True)
+    )
+    (l4): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(64, 64, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(64, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(64, 1, kernel_size=(39,), stride=(1,), padding=(19,))
+      (fc1c): Linear(in_features=64, out_features=32, bias=True)
+      (fc2c): Linear(in_features=32, out_features=64, bias=True)
+    )
+    (l5): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (down): Sequential(
+          (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn0): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(128, 128, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (residual): unit_tcn_skip(
+        (conv): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(128, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(128, 1, kernel_size=(39,), stride=(1,), padding=(19,))
+      (fc1c): Linear(in_features=128, out_features=64, bias=True)
+      (fc2c): Linear(in_features=64, out_features=128, bias=True)
+    )
+    (l6): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(128, 128, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(128, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(128, 1, kernel_size=(39,), stride=(1,), padding=(19,))
+      (fc1c): Linear(in_features=128, out_features=64, bias=True)
+      (fc2c): Linear(in_features=64, out_features=128, bias=True)
+    )
+    (l7): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(128, 128, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(128, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(128, 1, kernel_size=(39,), stride=(1,), padding=(19,))
+      (fc1c): Linear(in_features=128, out_features=64, bias=True)
+      (fc2c): Linear(in_features=64, out_features=128, bias=True)
+    )
+    (l8): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (down): Sequential(
+          (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn0): SyncBatchNorm(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(256, 256, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (residual): unit_tcn_skip(
+        (conv): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(256, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(256, 1, kernel_size=(39,), stride=(1,), padding=(19,))
+      (fc1c): Linear(in_features=256, out_features=128, bias=True)
+      (fc2c): Linear(in_features=128, out_features=256, bias=True)
+    )
+    (l9): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(256, 256, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(256, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(256, 1, kernel_size=(39,), stride=(1,), padding=(19,))
+      (fc1c): Linear(in_features=256, out_features=128, bias=True)
+      (fc2c): Linear(in_features=128, out_features=256, bias=True)
+    )
+    (l10): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(256, 256, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(256, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(256, 1, kernel_size=(39,), stride=(1,), padding=(19,))
+      (fc1c): Linear(in_features=256, out_features=128, bias=True)
+      (fc2c): Linear(in_features=128, out_features=256, bias=True)
+    )
+    (Head0): SeparateFCs()
+    (BNNecks): SeparateBNNecks(
+      (bn1d): SyncBatchNorm(9984, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+)
+[W TensorIterator.cpp:918] Warning: Mixed memory format inputs detected while calling the operator. The operator will output contiguous tensor even if some of the inputs are in channels_last format. (function operator())
+[2022-06-26 15:08:58] [INFO]: Iteration 00010, Cost 5.93s, triplet_loss=0.2858, triplet_hard_loss=1.4879, triplet_loss_num=4771.6411, triplet_mean_dist=1.0308, softmax_loss=4.3799, softmax_accuracy=0.0166
+[2022-06-26 15:09:02] [INFO]: Iteration 00020, Cost 3.37s, triplet_loss=0.2597, triplet_hard_loss=1.3961, triplet_loss_num=3865.3333, triplet_mean_dist=1.1970, softmax_loss=4.3538, softmax_accuracy=0.0386
+[2022-06-26 15:09:06] [INFO]: Iteration 00030, Cost 3.59s, triplet_loss=0.2704, triplet_hard_loss=1.4631, triplet_loss_num=3158.9512, triplet_mean_dist=1.3344, softmax_loss=4.3024, softmax_accuracy=0.1017
+[2022-06-26 15:09:09] [INFO]: Iteration 00040, Cost 3.23s, triplet_loss=0.2749, triplet_hard_loss=1.4950, triplet_loss_num=2918.9949, triplet_mean_dist=1.3608, softmax_loss=4.2657, softmax_accuracy=0.1149
+[2022-06-26 15:09:12] [INFO]: Iteration 00050, Cost 2.92s, triplet_loss=0.2834, triplet_hard_loss=1.5539, triplet_loss_num=2450.4282, triplet_mean_dist=1.4641, softmax_loss=4.2246, softmax_accuracy=0.1250
+[2022-06-26 15:09:16] [INFO]: Iteration 00060, Cost 4.43s, triplet_loss=0.2818, triplet_hard_loss=1.5036, triplet_loss_num=2210.8257, triplet_mean_dist=1.4606, softmax_loss=4.1728, softmax_accuracy=0.1640

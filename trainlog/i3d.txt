@@ -1,0 +1,303 @@
+nohup: ignoring input
+[2022-06-27 08:04:05] [INFO]: {'enable_float16': False, 'with_test': False, 'fix_BN': False, 'log_iter': 10, 'restore_ckpt_strict': False, 'optimizer_reset': True, 'scheduler_reset': True, 'restore_hint': 10, 'save_iter': 10, 'save_name': 'i3d_mlp', 'sync_BN': True, 'total_iter': 2500, 'sampler': {'batch_shuffle': True, 'batch_size': [6, 2], 'frames_num_fixed': 16, 'frames_num_max': 50, 'frames_num_min': 25, 'sample_type': 'fixed_ordered', 'type': 'TripletSampler', 'frames_skip_num': 0}, 'transform': [{'type': 'BaseRgbNormTransform'}], 'enable_distributed': True}
+[2022-06-27 08:04:05] [INFO]: {'model': 'i3d_mlp', 'channels': [32, 64, 128], 'class_num': 60, 'SeparateBNNecks': {'class_num': 60, 'in_channels': 1024, 'parts_num': 1}}
+[2022-06-27 08:04:05] [INFO]: {'dataset_name': 'SLR', 'dataset_root': '/fuxi_cv/SSL/original_1stage_data/data_sorted_pose_resize_vis_norm_npy/', 'num_workers': 1, 'dataset_partition': '/root/LBB/OpenSLR/datasets/SLR80.json', 'remove_no_gallery': False, 'cache': False, 'test_dataset_name': 'i3d_mlp'}
+-train_set- ['001', '002', '003', '004', '006', '007', '008', '009', '010', '011', '012', '013', '014', '015', '016', '017', '018', '019', '020', '021', '022', '023', '024', '025', '026', '027', '028', '029', '030', '031', '032', '033', '034', '035', '036', '037', '038', '039', '040', '041', '042', '043', '044', '045', '046', '047', '048', '049', '050', '051', '052', '053', '054', '055', '056', '057', '058', '059', '060', '061', '062', '063', '064', '065', '066', '067', '068', '069', '070', '071', '072', '073', '074', '075', '076', '077', '078', '079', '080']
+-test_set- ['001']
+[2022-06-27 08:04:05] [INFO]: -------- Train Pid List --------
+[2022-06-27 08:04:05] [INFO]: [001, 002, ..., 060]
+-----------------loader-----------------------------
+---------------------------------------self.train_loader ----------------------------------------------
+[2022-06-27 08:04:09] [INFO]: {'lr': 0.1, 'momentum': 0.9, 'solver': 'SGD', 'weight_decay': 0.0005}
+[2022-06-27 08:04:09] [INFO]: {'gamma': 0.1, 'milestones': [500, 1000, 1500, 2000], 'scheduler': 'MultiStepLR'}
+[2022-06-27 08:04:09] [INFO]: -------- Restored Params List --------
+[2022-06-27 08:04:09] [INFO]: ['i3d.Conv3d_1a_7x7.bn.bias', 'i3d.Conv3d_1a_7x7.bn.num_batches_tracked', 'i3d.Conv3d_1a_7x7.bn.running_mean', 'i3d.Conv3d_1a_7x7.bn.running_var', 'i3d.Conv3d_1a_7x7.bn.weight', 'i3d.Conv3d_1a_7x7.conv3d.weight', 'i3d.Conv3d_2b_1x1.bn.bias', 'i3d.Conv3d_2b_1x1.bn.num_batches_tracked', 'i3d.Conv3d_2b_1x1.bn.running_mean', 'i3d.Conv3d_2b_1x1.bn.running_var', 'i3d.Conv3d_2b_1x1.bn.weight', 'i3d.Conv3d_2b_1x1.conv3d.weight', 'i3d.Conv3d_2c_3x3.bn.bias', 'i3d.Conv3d_2c_3x3.bn.num_batches_tracked', 'i3d.Conv3d_2c_3x3.bn.running_mean', 'i3d.Conv3d_2c_3x3.bn.running_var', 'i3d.Conv3d_2c_3x3.bn.weight', 'i3d.Conv3d_2c_3x3.conv3d.weight', 'i3d.Mixed_3b.b0.bn.bias', 'i3d.Mixed_3b.b0.bn.num_batches_tracked', 'i3d.Mixed_3b.b0.bn.running_mean', 'i3d.Mixed_3b.b0.bn.running_var', 'i3d.Mixed_3b.b0.bn.weight', 'i3d.Mixed_3b.b0.conv3d.weight', 'i3d.Mixed_3b.b1a.bn.bias', 'i3d.Mixed_3b.b1a.bn.num_batches_tracked', 'i3d.Mixed_3b.b1a.bn.running_mean', 'i3d.Mixed_3b.b1a.bn.running_var', 'i3d.Mixed_3b.b1a.bn.weight', 'i3d.Mixed_3b.b1a.conv3d.weight', 'i3d.Mixed_3b.b1b.bn.bias', 'i3d.Mixed_3b.b1b.bn.num_batches_tracked', 'i3d.Mixed_3b.b1b.bn.running_mean', 'i3d.Mixed_3b.b1b.bn.running_var', 'i3d.Mixed_3b.b1b.bn.weight', 'i3d.Mixed_3b.b1b.conv3d.weight', 'i3d.Mixed_3b.b2a.bn.bias', 'i3d.Mixed_3b.b2a.bn.num_batches_tracked', 'i3d.Mixed_3b.b2a.bn.running_mean', 'i3d.Mixed_3b.b2a.bn.running_var', 'i3d.Mixed_3b.b2a.bn.weight', 'i3d.Mixed_3b.b2a.conv3d.weight', 'i3d.Mixed_3b.b2b.bn.bias', 'i3d.Mixed_3b.b2b.bn.num_batches_tracked', 'i3d.Mixed_3b.b2b.bn.running_mean', 'i3d.Mixed_3b.b2b.bn.running_var', 'i3d.Mixed_3b.b2b.bn.weight', 'i3d.Mixed_3b.b2b.conv3d.weight', 'i3d.Mixed_3b.b3b.bn.bias', 'i3d.Mixed_3b.b3b.bn.num_batches_tracked', 'i3d.Mixed_3b.b3b.bn.running_mean', 'i3d.Mixed_3b.b3b.bn.running_var', 'i3d.Mixed_3b.b3b.bn.weight', 'i3d.Mixed_3b.b3b.conv3d.weight', 'i3d.Mixed_3c.b0.bn.bias', 'i3d.Mixed_3c.b0.bn.num_batches_tracked', 'i3d.Mixed_3c.b0.bn.running_mean', 'i3d.Mixed_3c.b0.bn.running_var', 'i3d.Mixed_3c.b0.bn.weight', 'i3d.Mixed_3c.b0.conv3d.weight', 'i3d.Mixed_3c.b1a.bn.bias', 'i3d.Mixed_3c.b1a.bn.num_batches_tracked', 'i3d.Mixed_3c.b1a.bn.running_mean', 'i3d.Mixed_3c.b1a.bn.running_var', 'i3d.Mixed_3c.b1a.bn.weight', 'i3d.Mixed_3c.b1a.conv3d.weight', 'i3d.Mixed_3c.b1b.bn.bias', 'i3d.Mixed_3c.b1b.bn.num_batches_tracked', 'i3d.Mixed_3c.b1b.bn.running_mean', 'i3d.Mixed_3c.b1b.bn.running_var', 'i3d.Mixed_3c.b1b.bn.weight', 'i3d.Mixed_3c.b1b.conv3d.weight', 'i3d.Mixed_3c.b2a.bn.bias', 'i3d.Mixed_3c.b2a.bn.num_batches_tracked', 'i3d.Mixed_3c.b2a.bn.running_mean', 'i3d.Mixed_3c.b2a.bn.running_var', 'i3d.Mixed_3c.b2a.bn.weight', 'i3d.Mixed_3c.b2a.conv3d.weight', 'i3d.Mixed_3c.b2b.bn.bias', 'i3d.Mixed_3c.b2b.bn.num_batches_tracked', 'i3d.Mixed_3c.b2b.bn.running_mean', 'i3d.Mixed_3c.b2b.bn.running_var', 'i3d.Mixed_3c.b2b.bn.weight', 'i3d.Mixed_3c.b2b.conv3d.weight', 'i3d.Mixed_3c.b3b.bn.bias', 'i3d.Mixed_3c.b3b.bn.num_batches_tracked', 'i3d.Mixed_3c.b3b.bn.running_mean', 'i3d.Mixed_3c.b3b.bn.running_var', 'i3d.Mixed_3c.b3b.bn.weight', 'i3d.Mixed_3c.b3b.conv3d.weight', 'i3d.Mixed_4b.b0.bn.bias', 'i3d.Mixed_4b.b0.bn.num_batches_tracked', 'i3d.Mixed_4b.b0.bn.running_mean', 'i3d.Mixed_4b.b0.bn.running_var', 'i3d.Mixed_4b.b0.bn.weight', 'i3d.Mixed_4b.b0.conv3d.weight', 'i3d.Mixed_4b.b1a.bn.bias', 'i3d.Mixed_4b.b1a.bn.num_batches_tracked', 'i3d.Mixed_4b.b1a.bn.running_mean', 'i3d.Mixed_4b.b1a.bn.running_var', 'i3d.Mixed_4b.b1a.bn.weight', 'i3d.Mixed_4b.b1a.conv3d.weight', 'i3d.Mixed_4b.b1b.bn.bias', 'i3d.Mixed_4b.b1b.bn.num_batches_tracked', 'i3d.Mixed_4b.b1b.bn.running_mean', 'i3d.Mixed_4b.b1b.bn.running_var', 'i3d.Mixed_4b.b1b.bn.weight', 'i3d.Mixed_4b.b1b.conv3d.weight', 'i3d.Mixed_4b.b2a.bn.bias', 'i3d.Mixed_4b.b2a.bn.num_batches_tracked', 'i3d.Mixed_4b.b2a.bn.running_mean', 'i3d.Mixed_4b.b2a.bn.running_var', 'i3d.Mixed_4b.b2a.bn.weight', 'i3d.Mixed_4b.b2a.conv3d.weight', 'i3d.Mixed_4b.b2b.bn.bias', 'i3d.Mixed_4b.b2b.bn.num_batches_tracked', 'i3d.Mixed_4b.b2b.bn.running_mean', 'i3d.Mixed_4b.b2b.bn.running_var', 'i3d.Mixed_4b.b2b.bn.weight', 'i3d.Mixed_4b.b2b.conv3d.weight', 'i3d.Mixed_4b.b3b.bn.bias', 'i3d.Mixed_4b.b3b.bn.num_batches_tracked', 'i3d.Mixed_4b.b3b.bn.running_mean', 'i3d.Mixed_4b.b3b.bn.running_var', 'i3d.Mixed_4b.b3b.bn.weight', 'i3d.Mixed_4b.b3b.conv3d.weight', 'i3d.Mixed_4c.b0.bn.bias', 'i3d.Mixed_4c.b0.bn.num_batches_tracked', 'i3d.Mixed_4c.b0.bn.running_mean', 'i3d.Mixed_4c.b0.bn.running_var', 'i3d.Mixed_4c.b0.bn.weight', 'i3d.Mixed_4c.b0.conv3d.weight', 'i3d.Mixed_4c.b1a.bn.bias', 'i3d.Mixed_4c.b1a.bn.num_batches_tracked', 'i3d.Mixed_4c.b1a.bn.running_mean', 'i3d.Mixed_4c.b1a.bn.running_var', 'i3d.Mixed_4c.b1a.bn.weight', 'i3d.Mixed_4c.b1a.conv3d.weight', 'i3d.Mixed_4c.b1b.bn.bias', 'i3d.Mixed_4c.b1b.bn.num_batches_tracked', 'i3d.Mixed_4c.b1b.bn.running_mean', 'i3d.Mixed_4c.b1b.bn.running_var', 'i3d.Mixed_4c.b1b.bn.weight', 'i3d.Mixed_4c.b1b.conv3d.weight', 'i3d.Mixed_4c.b2a.bn.bias', 'i3d.Mixed_4c.b2a.bn.num_batches_tracked', 'i3d.Mixed_4c.b2a.bn.running_mean', 'i3d.Mixed_4c.b2a.bn.running_var', 'i3d.Mixed_4c.b2a.bn.weight', 'i3d.Mixed_4c.b2a.conv3d.weight', 'i3d.Mixed_4c.b2b.bn.bias', 'i3d.Mixed_4c.b2b.bn.num_batches_tracked', 'i3d.Mixed_4c.b2b.bn.running_mean', 'i3d.Mixed_4c.b2b.bn.running_var', 'i3d.Mixed_4c.b2b.bn.weight', 'i3d.Mixed_4c.b2b.conv3d.weight', 'i3d.Mixed_4c.b3b.bn.bias', 'i3d.Mixed_4c.b3b.bn.num_batches_tracked', 'i3d.Mixed_4c.b3b.bn.running_mean', 'i3d.Mixed_4c.b3b.bn.running_var', 'i3d.Mixed_4c.b3b.bn.weight', 'i3d.Mixed_4c.b3b.conv3d.weight', 'i3d.Mixed_4d.b0.bn.bias', 'i3d.Mixed_4d.b0.bn.num_batches_tracked', 'i3d.Mixed_4d.b0.bn.running_mean', 'i3d.Mixed_4d.b0.bn.running_var', 'i3d.Mixed_4d.b0.bn.weight', 'i3d.Mixed_4d.b0.conv3d.weight', 'i3d.Mixed_4d.b1a.bn.bias', 'i3d.Mixed_4d.b1a.bn.num_batches_tracked', 'i3d.Mixed_4d.b1a.bn.running_mean', 'i3d.Mixed_4d.b1a.bn.running_var', 'i3d.Mixed_4d.b1a.bn.weight', 'i3d.Mixed_4d.b1a.conv3d.weight', 'i3d.Mixed_4d.b1b.bn.bias', 'i3d.Mixed_4d.b1b.bn.num_batches_tracked', 'i3d.Mixed_4d.b1b.bn.running_mean', 'i3d.Mixed_4d.b1b.bn.running_var', 'i3d.Mixed_4d.b1b.bn.weight', 'i3d.Mixed_4d.b1b.conv3d.weight', 'i3d.Mixed_4d.b2a.bn.bias', 'i3d.Mixed_4d.b2a.bn.num_batches_tracked', 'i3d.Mixed_4d.b2a.bn.running_mean', 'i3d.Mixed_4d.b2a.bn.running_var', 'i3d.Mixed_4d.b2a.bn.weight', 'i3d.Mixed_4d.b2a.conv3d.weight', 'i3d.Mixed_4d.b2b.bn.bias', 'i3d.Mixed_4d.b2b.bn.num_batches_tracked', 'i3d.Mixed_4d.b2b.bn.running_mean', 'i3d.Mixed_4d.b2b.bn.running_var', 'i3d.Mixed_4d.b2b.bn.weight', 'i3d.Mixed_4d.b2b.conv3d.weight', 'i3d.Mixed_4d.b3b.bn.bias', 'i3d.Mixed_4d.b3b.bn.num_batches_tracked', 'i3d.Mixed_4d.b3b.bn.running_mean', 'i3d.Mixed_4d.b3b.bn.running_var', 'i3d.Mixed_4d.b3b.bn.weight', 'i3d.Mixed_4d.b3b.conv3d.weight', 'i3d.Mixed_4e.b0.bn.bias', 'i3d.Mixed_4e.b0.bn.num_batches_tracked', 'i3d.Mixed_4e.b0.bn.running_mean', 'i3d.Mixed_4e.b0.bn.running_var', 'i3d.Mixed_4e.b0.bn.weight', 'i3d.Mixed_4e.b0.conv3d.weight', 'i3d.Mixed_4e.b1a.bn.bias', 'i3d.Mixed_4e.b1a.bn.num_batches_tracked', 'i3d.Mixed_4e.b1a.bn.running_mean', 'i3d.Mixed_4e.b1a.bn.running_var', 'i3d.Mixed_4e.b1a.bn.weight', 'i3d.Mixed_4e.b1a.conv3d.weight', 'i3d.Mixed_4e.b1b.bn.bias', 'i3d.Mixed_4e.b1b.bn.num_batches_tracked', 'i3d.Mixed_4e.b1b.bn.running_mean', 'i3d.Mixed_4e.b1b.bn.running_var', 'i3d.Mixed_4e.b1b.bn.weight', 'i3d.Mixed_4e.b1b.conv3d.weight', 'i3d.Mixed_4e.b2a.bn.bias', 'i3d.Mixed_4e.b2a.bn.num_batches_tracked', 'i3d.Mixed_4e.b2a.bn.running_mean', 'i3d.Mixed_4e.b2a.bn.running_var', 'i3d.Mixed_4e.b2a.bn.weight', 'i3d.Mixed_4e.b2a.conv3d.weight', 'i3d.Mixed_4e.b2b.bn.bias', 'i3d.Mixed_4e.b2b.bn.num_batches_tracked', 'i3d.Mixed_4e.b2b.bn.running_mean', 'i3d.Mixed_4e.b2b.bn.running_var', 'i3d.Mixed_4e.b2b.bn.weight', 'i3d.Mixed_4e.b2b.conv3d.weight', 'i3d.Mixed_4e.b3b.bn.bias', 'i3d.Mixed_4e.b3b.bn.num_batches_tracked', 'i3d.Mixed_4e.b3b.bn.running_mean', 'i3d.Mixed_4e.b3b.bn.running_var', 'i3d.Mixed_4e.b3b.bn.weight', 'i3d.Mixed_4e.b3b.conv3d.weight', 'i3d.Mixed_4f.b0.bn.bias', 'i3d.Mixed_4f.b0.bn.num_batches_tracked', 'i3d.Mixed_4f.b0.bn.running_mean', 'i3d.Mixed_4f.b0.bn.running_var', 'i3d.Mixed_4f.b0.bn.weight', 'i3d.Mixed_4f.b0.conv3d.weight', 'i3d.Mixed_4f.b1a.bn.bias', 'i3d.Mixed_4f.b1a.bn.num_batches_tracked', 'i3d.Mixed_4f.b1a.bn.running_mean', 'i3d.Mixed_4f.b1a.bn.running_var', 'i3d.Mixed_4f.b1a.bn.weight', 'i3d.Mixed_4f.b1a.conv3d.weight', 'i3d.Mixed_4f.b1b.bn.bias', 'i3d.Mixed_4f.b1b.bn.num_batches_tracked', 'i3d.Mixed_4f.b1b.bn.running_mean', 'i3d.Mixed_4f.b1b.bn.running_var', 'i3d.Mixed_4f.b1b.bn.weight', 'i3d.Mixed_4f.b1b.conv3d.weight', 'i3d.Mixed_4f.b2a.bn.bias', 'i3d.Mixed_4f.b2a.bn.num_batches_tracked', 'i3d.Mixed_4f.b2a.bn.running_mean', 'i3d.Mixed_4f.b2a.bn.running_var', 'i3d.Mixed_4f.b2a.bn.weight', 'i3d.Mixed_4f.b2a.conv3d.weight', 'i3d.Mixed_4f.b2b.bn.bias', 'i3d.Mixed_4f.b2b.bn.num_batches_tracked', 'i3d.Mixed_4f.b2b.bn.running_mean', 'i3d.Mixed_4f.b2b.bn.running_var', 'i3d.Mixed_4f.b2b.bn.weight', 'i3d.Mixed_4f.b2b.conv3d.weight', 'i3d.Mixed_4f.b3b.bn.bias', 'i3d.Mixed_4f.b3b.bn.num_batches_tracked', 'i3d.Mixed_4f.b3b.bn.running_mean', 'i3d.Mixed_4f.b3b.bn.running_var', 'i3d.Mixed_4f.b3b.bn.weight', 'i3d.Mixed_4f.b3b.conv3d.weight', 'i3d.Mixed_5b.b0.bn.bias', 'i3d.Mixed_5b.b0.bn.num_batches_tracked', 'i3d.Mixed_5b.b0.bn.running_mean', 'i3d.Mixed_5b.b0.bn.running_var', 'i3d.Mixed_5b.b0.bn.weight', 'i3d.Mixed_5b.b0.conv3d.weight', 'i3d.Mixed_5b.b1a.bn.bias', 'i3d.Mixed_5b.b1a.bn.num_batches_tracked', 'i3d.Mixed_5b.b1a.bn.running_mean', 'i3d.Mixed_5b.b1a.bn.running_var', 'i3d.Mixed_5b.b1a.bn.weight', 'i3d.Mixed_5b.b1a.conv3d.weight', 'i3d.Mixed_5b.b1b.bn.bias', 'i3d.Mixed_5b.b1b.bn.num_batches_tracked', 'i3d.Mixed_5b.b1b.bn.running_mean', 'i3d.Mixed_5b.b1b.bn.running_var', 'i3d.Mixed_5b.b1b.bn.weight', 'i3d.Mixed_5b.b1b.conv3d.weight', 'i3d.Mixed_5b.b2a.bn.bias', 'i3d.Mixed_5b.b2a.bn.num_batches_tracked', 'i3d.Mixed_5b.b2a.bn.running_mean', 'i3d.Mixed_5b.b2a.bn.running_var', 'i3d.Mixed_5b.b2a.bn.weight', 'i3d.Mixed_5b.b2a.conv3d.weight', 'i3d.Mixed_5b.b2b.bn.bias', 'i3d.Mixed_5b.b2b.bn.num_batches_tracked', 'i3d.Mixed_5b.b2b.bn.running_mean', 'i3d.Mixed_5b.b2b.bn.running_var', 'i3d.Mixed_5b.b2b.bn.weight', 'i3d.Mixed_5b.b2b.conv3d.weight', 'i3d.Mixed_5b.b3b.bn.bias', 'i3d.Mixed_5b.b3b.bn.num_batches_tracked', 'i3d.Mixed_5b.b3b.bn.running_mean', 'i3d.Mixed_5b.b3b.bn.running_var', 'i3d.Mixed_5b.b3b.bn.weight', 'i3d.Mixed_5b.b3b.conv3d.weight', 'i3d.Mixed_5c.b0.bn.bias', 'i3d.Mixed_5c.b0.bn.num_batches_tracked', 'i3d.Mixed_5c.b0.bn.running_mean', 'i3d.Mixed_5c.b0.bn.running_var', 'i3d.Mixed_5c.b0.bn.weight', 'i3d.Mixed_5c.b0.conv3d.weight', 'i3d.Mixed_5c.b1a.bn.bias', 'i3d.Mixed_5c.b1a.bn.num_batches_tracked', 'i3d.Mixed_5c.b1a.bn.running_mean', 'i3d.Mixed_5c.b1a.bn.running_var', 'i3d.Mixed_5c.b1a.bn.weight', 'i3d.Mixed_5c.b1a.conv3d.weight', 'i3d.Mixed_5c.b1b.bn.bias', 'i3d.Mixed_5c.b1b.bn.num_batches_tracked', 'i3d.Mixed_5c.b1b.bn.running_mean', 'i3d.Mixed_5c.b1b.bn.running_var', 'i3d.Mixed_5c.b1b.bn.weight', 'i3d.Mixed_5c.b1b.conv3d.weight', 'i3d.Mixed_5c.b2a.bn.bias', 'i3d.Mixed_5c.b2a.bn.num_batches_tracked', 'i3d.Mixed_5c.b2a.bn.running_mean', 'i3d.Mixed_5c.b2a.bn.running_var', 'i3d.Mixed_5c.b2a.bn.weight', 'i3d.Mixed_5c.b2a.conv3d.weight', 'i3d.Mixed_5c.b2b.bn.bias', 'i3d.Mixed_5c.b2b.bn.num_batches_tracked', 'i3d.Mixed_5c.b2b.bn.running_mean', 'i3d.Mixed_5c.b2b.bn.running_var', 'i3d.Mixed_5c.b2b.bn.weight', 'i3d.Mixed_5c.b2b.conv3d.weight', 'i3d.Mixed_5c.b3b.bn.bias', 'i3d.Mixed_5c.b3b.bn.num_batches_tracked', 'i3d.Mixed_5c.b3b.bn.running_mean', 'i3d.Mixed_5c.b3b.bn.running_var', 'i3d.Mixed_5c.b3b.bn.weight', 'i3d.Mixed_5c.b3b.conv3d.weight']
+[2022-06-27 08:04:09] [WARNING]: Restore NO Optimizer from output/SLR/i3d_mlp/i3d_mlp/checkpoints/i3d_mlp-00010.pt !!!
+[2022-06-27 08:04:09] [WARNING]: Restore NO Scheduler from output/SLR/i3d_mlp/i3d_mlp/checkpoints/i3d_mlp-00010.pt !!!
+[2022-06-27 08:04:09] [INFO]: Restore Parameters from output/SLR/i3d_mlp/i3d_mlp/checkpoints/i3d_mlp-00010.pt !!!
+[2022-06-27 08:04:09] [INFO]: Parameters Count: 12.34876M
+[2022-06-27 08:04:09] [INFO]: Model Initialization Finished!
+-----------run_train------------
+DDPPassthrough(
+  (module): i3d_mlp(
+    (i3d): InceptionI3d(
+      (avgpool): AdaptiveAvgPool3d(output_size=(1, 1, 1))
+      (dropout): Dropout(p=0.5, inplace=False)
+      (logits): Unit3D(
+        (conv3d): Conv3d(1024, 60, kernel_size=[1, 1, 1], stride=(1, 1, 1))
+      )
+      (Conv3d_1a_7x7): Unit3D(
+        (conv3d): Conv3d(3, 64, kernel_size=[7, 7, 7], stride=(2, 2, 2), bias=False)
+        (bn): SyncBatchNorm(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      )
+      (MaxPool3d_2a_3x3): MaxPool3dSamePadding(kernel_size=[1, 3, 3], stride=(1, 2, 2), padding=0, dilation=1, ceil_mode=False)
+      (Conv3d_2b_1x1): Unit3D(
+        (conv3d): Conv3d(64, 64, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+        (bn): SyncBatchNorm(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      )
+      (Conv3d_2c_3x3): Unit3D(
+        (conv3d): Conv3d(64, 192, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+        (bn): SyncBatchNorm(192, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      )
+      (MaxPool3d_3a_3x3): MaxPool3dSamePadding(kernel_size=[1, 3, 3], stride=(1, 2, 2), padding=0, dilation=1, ceil_mode=False)
+      (Mixed_3b): InceptionModule(
+        (b0): Unit3D(
+          (conv3d): Conv3d(192, 64, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1a): Unit3D(
+          (conv3d): Conv3d(192, 96, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1b): Unit3D(
+          (conv3d): Conv3d(96, 128, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2a): Unit3D(
+          (conv3d): Conv3d(192, 16, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2b): Unit3D(
+          (conv3d): Conv3d(16, 32, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b3a): MaxPool3dSamePadding(kernel_size=[3, 3, 3], stride=(1, 1, 1), padding=0, dilation=1, ceil_mode=False)
+        (b3b): Unit3D(
+          (conv3d): Conv3d(192, 32, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (Mixed_3c): InceptionModule(
+        (b0): Unit3D(
+          (conv3d): Conv3d(256, 128, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1a): Unit3D(
+          (conv3d): Conv3d(256, 128, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1b): Unit3D(
+          (conv3d): Conv3d(128, 192, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(192, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2a): Unit3D(
+          (conv3d): Conv3d(256, 32, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2b): Unit3D(
+          (conv3d): Conv3d(32, 96, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b3a): MaxPool3dSamePadding(kernel_size=[3, 3, 3], stride=(1, 1, 1), padding=0, dilation=1, ceil_mode=False)
+        (b3b): Unit3D(
+          (conv3d): Conv3d(256, 64, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (MaxPool3d_4a_3x3): MaxPool3dSamePadding(kernel_size=[3, 3, 3], stride=(2, 2, 2), padding=0, dilation=1, ceil_mode=False)
+      (Mixed_4b): InceptionModule(
+        (b0): Unit3D(
+          (conv3d): Conv3d(480, 192, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(192, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1a): Unit3D(
+          (conv3d): Conv3d(480, 96, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1b): Unit3D(
+          (conv3d): Conv3d(96, 208, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(208, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2a): Unit3D(
+          (conv3d): Conv3d(480, 16, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2b): Unit3D(
+          (conv3d): Conv3d(16, 48, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b3a): MaxPool3dSamePadding(kernel_size=[3, 3, 3], stride=(1, 1, 1), padding=0, dilation=1, ceil_mode=False)
+        (b3b): Unit3D(
+          (conv3d): Conv3d(480, 64, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (Mixed_4c): InceptionModule(
+        (b0): Unit3D(
+          (conv3d): Conv3d(512, 160, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(160, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1a): Unit3D(
+          (conv3d): Conv3d(512, 112, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(112, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1b): Unit3D(
+          (conv3d): Conv3d(112, 224, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(224, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2a): Unit3D(
+          (conv3d): Conv3d(512, 24, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(24, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2b): Unit3D(
+          (conv3d): Conv3d(24, 64, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b3a): MaxPool3dSamePadding(kernel_size=[3, 3, 3], stride=(1, 1, 1), padding=0, dilation=1, ceil_mode=False)
+        (b3b): Unit3D(
+          (conv3d): Conv3d(512, 64, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (Mixed_4d): InceptionModule(
+        (b0): Unit3D(
+          (conv3d): Conv3d(512, 128, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1a): Unit3D(
+          (conv3d): Conv3d(512, 128, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1b): Unit3D(
+          (conv3d): Conv3d(128, 256, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2a): Unit3D(
+          (conv3d): Conv3d(512, 24, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(24, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2b): Unit3D(
+          (conv3d): Conv3d(24, 64, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b3a): MaxPool3dSamePadding(kernel_size=[3, 3, 3], stride=(1, 1, 1), padding=0, dilation=1, ceil_mode=False)
+        (b3b): Unit3D(
+          (conv3d): Conv3d(512, 64, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (Mixed_4e): InceptionModule(
+        (b0): Unit3D(
+          (conv3d): Conv3d(512, 112, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(112, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1a): Unit3D(
+          (conv3d): Conv3d(512, 144, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(144, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1b): Unit3D(
+          (conv3d): Conv3d(144, 288, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2a): Unit3D(
+          (conv3d): Conv3d(512, 32, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2b): Unit3D(
+          (conv3d): Conv3d(32, 64, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b3a): MaxPool3dSamePadding(kernel_size=[3, 3, 3], stride=(1, 1, 1), padding=0, dilation=1, ceil_mode=False)
+        (b3b): Unit3D(
+          (conv3d): Conv3d(512, 64, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (Mixed_4f): InceptionModule(
+        (b0): Unit3D(
+          (conv3d): Conv3d(528, 256, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1a): Unit3D(
+          (conv3d): Conv3d(528, 160, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(160, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1b): Unit3D(
+          (conv3d): Conv3d(160, 320, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(320, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2a): Unit3D(
+          (conv3d): Conv3d(528, 32, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2b): Unit3D(
+          (conv3d): Conv3d(32, 128, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b3a): MaxPool3dSamePadding(kernel_size=[3, 3, 3], stride=(1, 1, 1), padding=0, dilation=1, ceil_mode=False)
+        (b3b): Unit3D(
+          (conv3d): Conv3d(528, 128, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (MaxPool3d_5a_2x2): MaxPool3dSamePadding(kernel_size=[2, 2, 2], stride=(2, 2, 2), padding=0, dilation=1, ceil_mode=False)
+      (Mixed_5b): InceptionModule(
+        (b0): Unit3D(
+          (conv3d): Conv3d(832, 256, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1a): Unit3D(
+          (conv3d): Conv3d(832, 160, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(160, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1b): Unit3D(
+          (conv3d): Conv3d(160, 320, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(320, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2a): Unit3D(
+          (conv3d): Conv3d(832, 32, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2b): Unit3D(
+          (conv3d): Conv3d(32, 128, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b3a): MaxPool3dSamePadding(kernel_size=[3, 3, 3], stride=(1, 1, 1), padding=0, dilation=1, ceil_mode=False)
+        (b3b): Unit3D(
+          (conv3d): Conv3d(832, 128, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+      (Mixed_5c): InceptionModule(
+        (b0): Unit3D(
+          (conv3d): Conv3d(832, 384, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(384, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1a): Unit3D(
+          (conv3d): Conv3d(832, 192, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(192, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b1b): Unit3D(
+          (conv3d): Conv3d(192, 384, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(384, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2a): Unit3D(
+          (conv3d): Conv3d(832, 48, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b2b): Unit3D(
+          (conv3d): Conv3d(48, 128, kernel_size=[3, 3, 3], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (b3a): MaxPool3dSamePadding(kernel_size=[3, 3, 3], stride=(1, 1, 1), padding=0, dilation=1, ceil_mode=False)
+        (b3b): Unit3D(
+          (conv3d): Conv3d(832, 128, kernel_size=[1, 1, 1], stride=(1, 1, 1), bias=False)
+          (bn): SyncBatchNorm(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+  )
+)
+[2022-06-27 08:06:28] [INFO]: Iteration 00020, Cost 142.84s, softmax_loss=4.0482, softmax_accuracy=0.0667
+[2022-06-27 08:08:48] [INFO]: Iteration 00030, Cost 140.18s, softmax_loss=3.7625, softmax_accuracy=0.1917
+[2022-06-27 08:11:08] [INFO]: Iteration 00040, Cost 140.65s, softmax_loss=3.2824, softmax_accuracy=0.2333
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/FK_28/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/root/anaconda3/envs/FK_28/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/root/anaconda3/envs/FK_28/lib/python3.7/site-packages/torch/distributed/launch.py", line 261, in <module>
+    main()
+  File "/root/anaconda3/envs/FK_28/lib/python3.7/site-packages/torch/distributed/launch.py", line 257, in main
+    cmd=cmd)
+subprocess.CalledProcessError: Command '['/root/anaconda3/envs/FK_28/bin/python', '-u', 'openslr/main.py', '--local_rank=0', '--cfgs', 'config/SLR_I3D.yaml', '--phase', 'train']' died with <Signals.SIGTERM: 15>.

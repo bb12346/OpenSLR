@@ -1,0 +1,297 @@
+nohup: ignoring input
+[2022-06-26 15:12:37] [INFO]: {'enable_float16': False, 'with_test': False, 'fix_BN': False, 'log_iter': 10, 'restore_ckpt_strict': False, 'optimizer_reset': True, 'scheduler_reset': True, 'restore_hint': 10, 'save_iter': 10, 'save_name': 'SLR_Pose2D', 'sync_BN': True, 'total_iter': 500, 'sampler': {'batch_shuffle': True, 'batch_size': [12, 4], 'frames_num_fixed': 16, 'frames_num_max': 50, 'frames_num_min': 25, 'sample_type': 'fixed_ordered', 'type': 'TripletSampler', 'frames_skip_num': 0}, 'transform': [{'type': 'BasePosejointTransform2D'}], 'enable_distributed': True}
+[2022-06-26 15:12:37] [INFO]: {'model': 'SLR_Pose', 'class_num': 80, 'SeparateBNNecks': {'class_num': 80, 'in_channels': 256, 'parts_num': 81}}
+-labeling_mode 1-
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_Pose.py:144: UserWarning: nn.init.kaiming_normal is now deprecated in favor of nn.init.kaiming_normal_.
+  nn.init.kaiming_normal(conv.weight, mode='fan_out')
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_Pose.py:145: UserWarning: nn.init.constant is now deprecated in favor of nn.init.constant_.
+  nn.init.constant(conv.bias, 0)
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_Pose.py:149: UserWarning: nn.init.constant is now deprecated in favor of nn.init.constant_.
+  nn.init.constant(bn.weight, scale)
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_Pose.py:150: UserWarning: nn.init.constant is now deprecated in favor of nn.init.constant_.
+  nn.init.constant(bn.bias, 0)
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_Pose.py:228: UserWarning: nn.init.constant is now deprecated in favor of nn.init.constant_.
+  nn.init.constant(self.Linear_bias, 1e-6)
+/root/LBB/OpenSLR/openslr/modeling/models/SLR_Pose.py:234: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  eye_array), requires_grad=False, device='cuda'), requires_grad=False)  # [c,25,25]
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+Attention Enabled!
+[2022-06-26 15:12:41] [INFO]: {'dataset_name': 'SLR', 'dataset_root': '/data/SSL/SSL/all_2D_train_val', 'num_workers': 1, 'dataset_partition': '/root/LBB/OpenSLR/datasets/SLR80.json', 'remove_no_gallery': False, 'cache': False, 'test_dataset_name': 'SLR_Pose'}
+-train_set- ['001', '002', '003', '004', '006', '007', '008', '009', '010', '011', '012', '013', '014', '015', '016', '017', '018', '019', '020', '021', '022', '023', '024', '025', '026', '027', '028', '029', '030', '031', '032', '033', '034', '035', '036', '037', '038', '039', '040', '041', '042', '043', '044', '045', '046', '047', '048', '049', '050', '051', '052', '053', '054', '055', '056', '057', '058', '059', '060', '061', '062', '063', '064', '065', '066', '067', '068', '069', '070', '071', '072', '073', '074', '075', '076', '077', '078', '079', '080']
+-test_set- ['001']
+[2022-06-26 15:12:41] [INFO]: -------- Train Pid List --------
+[2022-06-26 15:12:41] [INFO]: [001, 002, ..., 080]
+-----------------loader-----------------------------
+---------------------------------------self.train_loader ----------------------------------------------
+[2022-06-26 15:12:41] [INFO]: {'lr': 0.1, 'momentum': 0.9, 'solver': 'SGD', 'weight_decay': 0.0005}
+[2022-06-26 15:12:41] [INFO]: {'gamma': 0.01, 'milestones': [100, 150, 200, 300], 'scheduler': 'MultiStepLR'}
+[2022-06-26 15:12:41] [INFO]: -------- Restored Params List --------
+[2022-06-26 15:12:41] [INFO]: ['data_bn.bias', 'data_bn.num_batches_tracked', 'data_bn.running_mean', 'data_bn.running_var', 'data_bn.weight', 'l1.A', 'l1.conv_sa.bias', 'l1.conv_sa.weight', 'l1.conv_ta.bias', 'l1.conv_ta.weight', 'l1.fc1c.bias', 'l1.fc1c.weight', 'l1.fc2c.bias', 'l1.fc2c.weight', 'l1.gcn1.DecoupleA', 'l1.gcn1.Linear_bias', 'l1.gcn1.Linear_weight', 'l1.gcn1.bn.bias', 'l1.gcn1.bn.num_batches_tracked', 'l1.gcn1.bn.running_mean', 'l1.gcn1.bn.running_var', 'l1.gcn1.bn.weight', 'l1.gcn1.bn0.bias', 'l1.gcn1.bn0.num_batches_tracked', 'l1.gcn1.bn0.running_mean', 'l1.gcn1.bn0.running_var', 'l1.gcn1.bn0.weight', 'l1.gcn1.down.0.bias', 'l1.gcn1.down.0.weight', 'l1.gcn1.down.1.bias', 'l1.gcn1.down.1.num_batches_tracked', 'l1.gcn1.down.1.running_mean', 'l1.gcn1.down.1.running_var', 'l1.gcn1.down.1.weight', 'l1.gcn1.eyes', 'l1.tcn1.bn.bias', 'l1.tcn1.bn.num_batches_tracked', 'l1.tcn1.bn.running_mean', 'l1.tcn1.bn.running_var', 'l1.tcn1.bn.weight', 'l1.tcn1.conv.bias', 'l1.tcn1.conv.weight', 'l10.A', 'l10.conv_sa.bias', 'l10.conv_sa.weight', 'l10.conv_ta.bias', 'l10.conv_ta.weight', 'l10.fc1c.bias', 'l10.fc1c.weight', 'l10.fc2c.bias', 'l10.fc2c.weight', 'l10.gcn1.DecoupleA', 'l10.gcn1.Linear_bias', 'l10.gcn1.Linear_weight', 'l10.gcn1.bn.bias', 'l10.gcn1.bn.num_batches_tracked', 'l10.gcn1.bn.running_mean', 'l10.gcn1.bn.running_var', 'l10.gcn1.bn.weight', 'l10.gcn1.bn0.bias', 'l10.gcn1.bn0.num_batches_tracked', 'l10.gcn1.bn0.running_mean', 'l10.gcn1.bn0.running_var', 'l10.gcn1.bn0.weight', 'l10.gcn1.eyes', 'l10.tcn1.bn.bias', 'l10.tcn1.bn.num_batches_tracked', 'l10.tcn1.bn.running_mean', 'l10.tcn1.bn.running_var', 'l10.tcn1.bn.weight', 'l10.tcn1.conv.bias', 'l10.tcn1.conv.weight', 'l2.A', 'l2.conv_sa.bias', 'l2.conv_sa.weight', 'l2.conv_ta.bias', 'l2.conv_ta.weight', 'l2.fc1c.bias', 'l2.fc1c.weight', 'l2.fc2c.bias', 'l2.fc2c.weight', 'l2.gcn1.DecoupleA', 'l2.gcn1.Linear_bias', 'l2.gcn1.Linear_weight', 'l2.gcn1.bn.bias', 'l2.gcn1.bn.num_batches_tracked', 'l2.gcn1.bn.running_mean', 'l2.gcn1.bn.running_var', 'l2.gcn1.bn.weight', 'l2.gcn1.bn0.bias', 'l2.gcn1.bn0.num_batches_tracked', 'l2.gcn1.bn0.running_mean', 'l2.gcn1.bn0.running_var', 'l2.gcn1.bn0.weight', 'l2.gcn1.eyes', 'l2.tcn1.bn.bias', 'l2.tcn1.bn.num_batches_tracked', 'l2.tcn1.bn.running_mean', 'l2.tcn1.bn.running_var', 'l2.tcn1.bn.weight', 'l2.tcn1.conv.bias', 'l2.tcn1.conv.weight', 'l3.A', 'l3.conv_sa.bias', 'l3.conv_sa.weight', 'l3.conv_ta.bias', 'l3.conv_ta.weight', 'l3.fc1c.bias', 'l3.fc1c.weight', 'l3.fc2c.bias', 'l3.fc2c.weight', 'l3.gcn1.DecoupleA', 'l3.gcn1.Linear_bias', 'l3.gcn1.Linear_weight', 'l3.gcn1.bn.bias', 'l3.gcn1.bn.num_batches_tracked', 'l3.gcn1.bn.running_mean', 'l3.gcn1.bn.running_var', 'l3.gcn1.bn.weight', 'l3.gcn1.bn0.bias', 'l3.gcn1.bn0.num_batches_tracked', 'l3.gcn1.bn0.running_mean', 'l3.gcn1.bn0.running_var', 'l3.gcn1.bn0.weight', 'l3.gcn1.eyes', 'l3.tcn1.bn.bias', 'l3.tcn1.bn.num_batches_tracked', 'l3.tcn1.bn.running_mean', 'l3.tcn1.bn.running_var', 'l3.tcn1.bn.weight', 'l3.tcn1.conv.bias', 'l3.tcn1.conv.weight', 'l4.A', 'l4.conv_sa.bias', 'l4.conv_sa.weight', 'l4.conv_ta.bias', 'l4.conv_ta.weight', 'l4.fc1c.bias', 'l4.fc1c.weight', 'l4.fc2c.bias', 'l4.fc2c.weight', 'l4.gcn1.DecoupleA', 'l4.gcn1.Linear_bias', 'l4.gcn1.Linear_weight', 'l4.gcn1.bn.bias', 'l4.gcn1.bn.num_batches_tracked', 'l4.gcn1.bn.running_mean', 'l4.gcn1.bn.running_var', 'l4.gcn1.bn.weight', 'l4.gcn1.bn0.bias', 'l4.gcn1.bn0.num_batches_tracked', 'l4.gcn1.bn0.running_mean', 'l4.gcn1.bn0.running_var', 'l4.gcn1.bn0.weight', 'l4.gcn1.eyes', 'l4.tcn1.bn.bias', 'l4.tcn1.bn.num_batches_tracked', 'l4.tcn1.bn.running_mean', 'l4.tcn1.bn.running_var', 'l4.tcn1.bn.weight', 'l4.tcn1.conv.bias', 'l4.tcn1.conv.weight', 'l5.A', 'l5.conv_sa.bias', 'l5.conv_sa.weight', 'l5.conv_ta.bias', 'l5.conv_ta.weight', 'l5.fc1c.bias', 'l5.fc1c.weight', 'l5.fc2c.bias', 'l5.fc2c.weight', 'l5.gcn1.DecoupleA', 'l5.gcn1.Linear_bias', 'l5.gcn1.Linear_weight', 'l5.gcn1.bn.bias', 'l5.gcn1.bn.num_batches_tracked', 'l5.gcn1.bn.running_mean', 'l5.gcn1.bn.running_var', 'l5.gcn1.bn.weight', 'l5.gcn1.bn0.bias', 'l5.gcn1.bn0.num_batches_tracked', 'l5.gcn1.bn0.running_mean', 'l5.gcn1.bn0.running_var', 'l5.gcn1.bn0.weight', 'l5.gcn1.down.0.bias', 'l5.gcn1.down.0.weight', 'l5.gcn1.down.1.bias', 'l5.gcn1.down.1.num_batches_tracked', 'l5.gcn1.down.1.running_mean', 'l5.gcn1.down.1.running_var', 'l5.gcn1.down.1.weight', 'l5.gcn1.eyes', 'l5.residual.bn.bias', 'l5.residual.bn.num_batches_tracked', 'l5.residual.bn.running_mean', 'l5.residual.bn.running_var', 'l5.residual.bn.weight', 'l5.residual.conv.bias', 'l5.residual.conv.weight', 'l5.tcn1.bn.bias', 'l5.tcn1.bn.num_batches_tracked', 'l5.tcn1.bn.running_mean', 'l5.tcn1.bn.running_var', 'l5.tcn1.bn.weight', 'l5.tcn1.conv.bias', 'l5.tcn1.conv.weight', 'l6.A', 'l6.conv_sa.bias', 'l6.conv_sa.weight', 'l6.conv_ta.bias', 'l6.conv_ta.weight', 'l6.fc1c.bias', 'l6.fc1c.weight', 'l6.fc2c.bias', 'l6.fc2c.weight', 'l6.gcn1.DecoupleA', 'l6.gcn1.Linear_bias', 'l6.gcn1.Linear_weight', 'l6.gcn1.bn.bias', 'l6.gcn1.bn.num_batches_tracked', 'l6.gcn1.bn.running_mean', 'l6.gcn1.bn.running_var', 'l6.gcn1.bn.weight', 'l6.gcn1.bn0.bias', 'l6.gcn1.bn0.num_batches_tracked', 'l6.gcn1.bn0.running_mean', 'l6.gcn1.bn0.running_var', 'l6.gcn1.bn0.weight', 'l6.gcn1.eyes', 'l6.tcn1.bn.bias', 'l6.tcn1.bn.num_batches_tracked', 'l6.tcn1.bn.running_mean', 'l6.tcn1.bn.running_var', 'l6.tcn1.bn.weight', 'l6.tcn1.conv.bias', 'l6.tcn1.conv.weight', 'l7.A', 'l7.conv_sa.bias', 'l7.conv_sa.weight', 'l7.conv_ta.bias', 'l7.conv_ta.weight', 'l7.fc1c.bias', 'l7.fc1c.weight', 'l7.fc2c.bias', 'l7.fc2c.weight', 'l7.gcn1.DecoupleA', 'l7.gcn1.Linear_bias', 'l7.gcn1.Linear_weight', 'l7.gcn1.bn.bias', 'l7.gcn1.bn.num_batches_tracked', 'l7.gcn1.bn.running_mean', 'l7.gcn1.bn.running_var', 'l7.gcn1.bn.weight', 'l7.gcn1.bn0.bias', 'l7.gcn1.bn0.num_batches_tracked', 'l7.gcn1.bn0.running_mean', 'l7.gcn1.bn0.running_var', 'l7.gcn1.bn0.weight', 'l7.gcn1.eyes', 'l7.tcn1.bn.bias', 'l7.tcn1.bn.num_batches_tracked', 'l7.tcn1.bn.running_mean', 'l7.tcn1.bn.running_var', 'l7.tcn1.bn.weight', 'l7.tcn1.conv.bias', 'l7.tcn1.conv.weight', 'l8.A', 'l8.conv_sa.bias', 'l8.conv_sa.weight', 'l8.conv_ta.bias', 'l8.conv_ta.weight', 'l8.fc1c.bias', 'l8.fc1c.weight', 'l8.fc2c.bias', 'l8.fc2c.weight', 'l8.gcn1.DecoupleA', 'l8.gcn1.Linear_bias', 'l8.gcn1.Linear_weight', 'l8.gcn1.bn.bias', 'l8.gcn1.bn.num_batches_tracked', 'l8.gcn1.bn.running_mean', 'l8.gcn1.bn.running_var', 'l8.gcn1.bn.weight', 'l8.gcn1.bn0.bias', 'l8.gcn1.bn0.num_batches_tracked', 'l8.gcn1.bn0.running_mean', 'l8.gcn1.bn0.running_var', 'l8.gcn1.bn0.weight', 'l8.gcn1.down.0.bias', 'l8.gcn1.down.0.weight', 'l8.gcn1.down.1.bias', 'l8.gcn1.down.1.num_batches_tracked', 'l8.gcn1.down.1.running_mean', 'l8.gcn1.down.1.running_var', 'l8.gcn1.down.1.weight', 'l8.gcn1.eyes', 'l8.residual.bn.bias', 'l8.residual.bn.num_batches_tracked', 'l8.residual.bn.running_mean', 'l8.residual.bn.running_var', 'l8.residual.bn.weight', 'l8.residual.conv.bias', 'l8.residual.conv.weight', 'l8.tcn1.bn.bias', 'l8.tcn1.bn.num_batches_tracked', 'l8.tcn1.bn.running_mean', 'l8.tcn1.bn.running_var', 'l8.tcn1.bn.weight', 'l8.tcn1.conv.bias', 'l8.tcn1.conv.weight', 'l9.A', 'l9.conv_sa.bias', 'l9.conv_sa.weight', 'l9.conv_ta.bias', 'l9.conv_ta.weight', 'l9.fc1c.bias', 'l9.fc1c.weight', 'l9.fc2c.bias', 'l9.fc2c.weight', 'l9.gcn1.DecoupleA', 'l9.gcn1.Linear_bias', 'l9.gcn1.Linear_weight', 'l9.gcn1.bn.bias', 'l9.gcn1.bn.num_batches_tracked', 'l9.gcn1.bn.running_mean', 'l9.gcn1.bn.running_var', 'l9.gcn1.bn.weight', 'l9.gcn1.bn0.bias', 'l9.gcn1.bn0.num_batches_tracked', 'l9.gcn1.bn0.running_mean', 'l9.gcn1.bn0.running_var', 'l9.gcn1.bn0.weight', 'l9.gcn1.eyes', 'l9.tcn1.bn.bias', 'l9.tcn1.bn.num_batches_tracked', 'l9.tcn1.bn.running_mean', 'l9.tcn1.bn.running_var', 'l9.tcn1.bn.weight', 'l9.tcn1.conv.bias', 'l9.tcn1.conv.weight']
+[2022-06-26 15:12:41] [WARNING]: Restore NO Optimizer from output/SLR/SLR_Pose/SLR_Pose2D/checkpoints/SLR_Pose2D-00010.pt !!!
+[2022-06-26 15:12:41] [WARNING]: Restore NO Scheduler from output/SLR/SLR_Pose/SLR_Pose2D/checkpoints/SLR_Pose2D-00010.pt !!!
+[2022-06-26 15:12:41] [INFO]: Restore Parameters from output/SLR/SLR_Pose/SLR_Pose2D/checkpoints/SLR_Pose2D-00010.pt !!!
+[2022-06-26 15:12:41] [INFO]: Parameters Count: 11.82299M
+[2022-06-26 15:12:41] [INFO]: Model Initialization Finished!
+-----------run_train------------
+DDPPassthrough(
+  (module): SLR_Pose(
+    (data_bn): SyncBatchNorm(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (l1): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (down): Sequential(
+          (0): Conv2d(3, 64, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn0): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(64, 64, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(64, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(64, 1, kernel_size=(27,), stride=(1,), padding=(13,))
+      (fc1c): Linear(in_features=64, out_features=32, bias=True)
+      (fc2c): Linear(in_features=32, out_features=64, bias=True)
+    )
+    (l2): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(64, 64, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(64, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(64, 1, kernel_size=(27,), stride=(1,), padding=(13,))
+      (fc1c): Linear(in_features=64, out_features=32, bias=True)
+      (fc2c): Linear(in_features=32, out_features=64, bias=True)
+    )
+    (l3): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(64, 64, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(64, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(64, 1, kernel_size=(27,), stride=(1,), padding=(13,))
+      (fc1c): Linear(in_features=64, out_features=32, bias=True)
+      (fc2c): Linear(in_features=32, out_features=64, bias=True)
+    )
+    (l4): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(64, 64, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(64, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(64, 1, kernel_size=(27,), stride=(1,), padding=(13,))
+      (fc1c): Linear(in_features=64, out_features=32, bias=True)
+      (fc2c): Linear(in_features=32, out_features=64, bias=True)
+    )
+    (l5): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (down): Sequential(
+          (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn0): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(128, 128, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (residual): unit_tcn_skip(
+        (conv): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(128, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(128, 1, kernel_size=(27,), stride=(1,), padding=(13,))
+      (fc1c): Linear(in_features=128, out_features=64, bias=True)
+      (fc2c): Linear(in_features=64, out_features=128, bias=True)
+    )
+    (l6): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(128, 128, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(128, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(128, 1, kernel_size=(27,), stride=(1,), padding=(13,))
+      (fc1c): Linear(in_features=128, out_features=64, bias=True)
+      (fc2c): Linear(in_features=64, out_features=128, bias=True)
+    )
+    (l7): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(128, 128, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(128, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(128, 1, kernel_size=(27,), stride=(1,), padding=(13,))
+      (fc1c): Linear(in_features=128, out_features=64, bias=True)
+      (fc2c): Linear(in_features=64, out_features=128, bias=True)
+    )
+    (l8): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (down): Sequential(
+          (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn0): SyncBatchNorm(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(256, 256, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (residual): unit_tcn_skip(
+        (conv): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(256, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(256, 1, kernel_size=(27,), stride=(1,), padding=(13,))
+      (fc1c): Linear(in_features=256, out_features=128, bias=True)
+      (fc2c): Linear(in_features=128, out_features=256, bias=True)
+    )
+    (l9): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(256, 256, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(256, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(256, 1, kernel_size=(27,), stride=(1,), padding=(13,))
+      (fc1c): Linear(in_features=256, out_features=128, bias=True)
+      (fc2c): Linear(in_features=128, out_features=256, bias=True)
+    )
+    (l10): TCN_GCN_unit(
+      (gcn1): unit_gcn(
+        (bn0): SyncBatchNorm(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+      )
+      (tcn1): unit_tcn(
+        (conv): Conv2d(256, 256, kernel_size=(9, 1), stride=(1, 1), padding=(4, 0))
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropS): DropBlock_Ske()
+        (dropT): DropBlockT_1d()
+      )
+      (relu): ReLU()
+      (dropSke): DropBlock_Ske()
+      (dropT_skip): DropBlockT_1d()
+      (sigmoid): Sigmoid()
+      (conv_ta): Conv1d(256, 1, kernel_size=(9,), stride=(1,), padding=(4,))
+      (conv_sa): Conv1d(256, 1, kernel_size=(27,), stride=(1,), padding=(13,))
+      (fc1c): Linear(in_features=256, out_features=128, bias=True)
+      (fc2c): Linear(in_features=128, out_features=256, bias=True)
+    )
+    (Head0): SeparateFCs()
+    (BNNecks): SeparateBNNecks(
+      (bn1d): SyncBatchNorm(20736, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+)
+[W TensorIterator.cpp:918] Warning: Mixed memory format inputs detected while calling the operator. The operator will output contiguous tensor even if some of the inputs are in channels_last format. (function operator())
+[2022-06-26 15:12:43] [INFO]: Iteration 00020, Cost 5.95s, triplet_loss=0.3018, triplet_hard_loss=1.5129, triplet_loss_num=3907.9297, triplet_mean_dist=1.2169, softmax_loss=4.3746, softmax_accuracy=0.0210
+[2022-06-26 15:12:45] [INFO]: Iteration 00030, Cost 2.49s, triplet_loss=0.2890, triplet_hard_loss=1.4310, triplet_loss_num=3135.9419, triplet_mean_dist=1.2796, softmax_loss=4.3240, softmax_accuracy=0.1175
